@@ -5,7 +5,7 @@ import com.example.springbootapp.student.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
-
+//adasdasd
 /*
     private static final List<Student> students = new ArrayList<>();
 

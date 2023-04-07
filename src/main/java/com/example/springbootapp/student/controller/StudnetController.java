@@ -31,6 +31,8 @@ public class StudnetController {
         return "redirect:/students";
     }
 
+    ///asdasdasasd
+
     @DeleteMapping("/{id}")
     public String delete(@PathVariable long id){
         studentService.delete(id);
