@@ -7,15 +7,10 @@
 <body>
 
 <h5><a href="/students/create">dodaj</a></h5>
-
 </br>
 
-
-<h5><a href="/students/delete">usun</a></h5>
-
-</br>
-</br>
 <h1>Studenci</h1>
+
 </br>
 <table>
     <thead>
@@ -23,6 +18,8 @@
         <th>ID</th>
         <th>Imie</th>
         <th>Nazwisko</th>
+        <th>Jezyk</th>
+        <th>Nauczyciel</th>
     </tr>
     </thead>
     <tbody>
@@ -30,6 +27,8 @@
         <td th:text="${student.id}"></td>
         <td th:text="${student.name}"></td>
         <td th:text="${student.surname}"></td>
+        <td th:text="${student.language}"></td>
+        <td th:text="${student.teacher}"></td>
     </tr>
 
     </tbody>

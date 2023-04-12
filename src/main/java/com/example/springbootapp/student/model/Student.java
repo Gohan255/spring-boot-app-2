@@ -1,11 +1,13 @@
 package com.example.springbootapp.student.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.springbootapp.common.Language;
+import com.example.springbootapp.lesson.model.Lesson;
+import com.example.springbootapp.teacher.model.Teacher;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,5 +23,12 @@ public class Student {
     private String name;
     private String surname;
 
+    @Enumerated(EnumType.STRING)
+    private Language language;
+
+    @ManyToOne
+    private Teacher teacher;
+    @OneToMany(mappedBy = "student")
+    private List<Lesson> lessons;
 
 }

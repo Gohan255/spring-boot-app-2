@@ -1,7 +1,9 @@
-package com.example.springbootapp.student.controller;
+package com.example.springbootapp.student;
 
-import com.example.springbootapp.student.services.StudentService;
+import com.example.springbootapp.common.Language;
+import com.example.springbootapp.student.StudentService;
 import com.example.springbootapp.student.model.Student;
+import com.example.springbootapp.teacher.TeacherService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,16 +15,19 @@ import org.springframework.web.bind.annotation.*;
 public class StudnetController {
 
     private final StudentService studentService;
+    private final TeacherService teacherService;
 
     @GetMapping
     public String findAll(Model model){
         model.addAttribute("students", studentService.findAll());
-        return "students-list";
+        return "student/students-list";
     }
 
     @GetMapping("/create")
-    public String getStudnetsCreateForm(){
-        return "form";
+    public String getStudnetsCreateForm(Model model){
+        model.addAttribute("languages", Language.values());
+        model.addAttribute("teachers", teacherService.findAll());
+        return "student/form";
     }
 
     @PostMapping("/create")
@@ -31,15 +36,10 @@ public class StudnetController {
         return "redirect:/students";
     }
 
-    ///asdasdasasd
-
     @DeleteMapping("/{id}")
     public String delete(@PathVariable long id){
         studentService.delete(id);
-        return "students-list";
+        return "student/students-list";
     }
-
-    //dodaje jakis napis
-
 
 }
