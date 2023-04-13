@@ -36,4 +36,12 @@ public class Teacher {
     @OneToMany(mappedBy = "teacher")
     private List<Lesson> lessons;
 
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
+    }
 }

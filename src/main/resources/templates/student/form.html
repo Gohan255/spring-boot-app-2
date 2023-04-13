@@ -22,7 +22,7 @@
 
     <select id="teacherSelectId" name="teacherId">
         <option value="" disabled selected>wybierz nauczyciela</option>
-        <!-- <option th:each="teacher : ${teachers}" th:text="${teacher.name + ' ' + teacher.surname}"
+      <!--   <option th:each="teacher : ${teachers}" th:text="${teacher.name + ' ' + teacher.surname}"
                  th:value="${teacher.id}"></option>-->
     </select>
 
@@ -35,6 +35,7 @@
 </html>
 
 <script type="text/javascript">
+
     function populateTeachers(langSelectId, teacherSelectId) {
         let langSelect = document.getElementById(langSelectId);
         let teacherSelect = document.getElementById(teacherSelectId);

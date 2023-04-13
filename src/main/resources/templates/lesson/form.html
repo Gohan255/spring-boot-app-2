@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Stworz</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+<h1>Utworz Lekcje</h1>
+
+<form method="post" action="/lessons/create">
+
+    <!--<select name="studentId">
+      <option value="" disabled selected>wybierz studenta</option>
+      <option th:each="student : ${students}" th:text="${student.name + ' ' + student.surname}"
+              th:value="${student.id}"></option>
+    </select>-->
+
+    <select id="teacherSelectId" name="teacherId" onchange="populateStudents(this.id, 'studentSelectId')">
+        <option value="" disabled selected>wybierz nauczyciela</option>
+        <option th:each="teacher : ${teachers}" th:text="${teacher}" th:value="${teacher.id}"></option>
+    </select>
+
+    </br>
+
+    <select id="studentSelectId" name="studentId">
+        <option value="" disabled selected>wybierz studenta</option>
+    </select>
+    </br>
+
+    <button type="submit">Zapisz</button>
+
+</form>
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+    function populateStudents(teacherSelectId, studentSelectId) {
+        let teacherSelect = document.getElementById(teacherSelectId);
+        let studentSelect = document.getElementById(studentSelectId);
+        let url = "/students?teacherId=" + teacherSelect.value;
+        $.getJSON(url, function (data) {
+            studentSelect.innerHTML = '<option value="" disabled selected>wybierz studenta</option>'
+            data.forEach(student => {
+                let option = '<option value="' + student.id + '">' + student.name + ' ' + student.surname + '</option>';
+                studentSelect.innerHTML += option;
+            })
+        });
+    }
+</script>
+
+

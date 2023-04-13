@@ -20,7 +20,7 @@ public class TeacherController {
     @GetMapping
     public String findAll(Model model){
        model.addAttribute("teachers", teacherService.findAll());
-        return "teacher/teachers-list";
+        return "teacher/list";
     }
 
     @GetMapping("/create")

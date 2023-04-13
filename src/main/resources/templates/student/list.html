@@ -28,7 +28,7 @@
         <td th:text="${student.name}"></td>
         <td th:text="${student.surname}"></td>
         <td th:text="${student.language}"></td>
-        <td th:text="${student.teacher}"></td>
+        <td th:text="${student.teacher.name + ' ' + student.teacher.surname}"></td>
     </tr>
 
     </tbody>

@@ -21,7 +21,6 @@ public class Lesson {
     private LocalDateTime term;
     @ManyToOne
     private Teacher teacher;
-
     @ManyToOne
     private Student student;
 }
